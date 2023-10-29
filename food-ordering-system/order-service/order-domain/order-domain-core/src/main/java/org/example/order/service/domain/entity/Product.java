@@ -7,9 +7,14 @@ import org.example.valueobject.ProductId;
 public class Product extends BaseEntity<ProductId> {
 
   private String name;
-  private String price;
+  private Money price;
 
-  public Product(String name, String price) {
+  public Product(String name, Money price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  public void updateWithConfirmedNameAndPrice(String name, Money price) {
     this.name = name;
     this.price = price;
   }
@@ -18,7 +23,7 @@ public class Product extends BaseEntity<ProductId> {
     return name;
   }
 
-  public String getPrice() {
+  public Money getPrice() {
     return price;
   }
 }
